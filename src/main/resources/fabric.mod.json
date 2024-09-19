@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "sanity-mod",
+	"version": "${version}",
+	"name": "Sanity Mod",
+	"description": "这是一个关于san值设定的模组!",
+	"authors": [
+		"Finkkk!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/sanity-mod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.finkkk.SanityMod"
+		],
+		"client": [
+			"com.finkkk.SanityModClient"
+		],
+		"fabric-datagen": [
+			"com.finkkk.SanityModDataGenerator"
+		]
+	},
+	"mixins": [
+		"sanity-mod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

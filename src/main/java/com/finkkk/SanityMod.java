@@ -1,5 +1,7 @@
 package com.finkkk;
 
+import com.finkkk.item.ModItemGroup;
+import com.finkkk.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -18,7 +20,10 @@ public class SanityMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		//test
+		ModItems.regitsterModItems();
+		ModItemGroup.registerItemGroup();
+		// 初始化 SAN 管理器
+		new SanityManager().onInitialize();
 
 		LOGGER.info("Hello Fabric world!");
 	}

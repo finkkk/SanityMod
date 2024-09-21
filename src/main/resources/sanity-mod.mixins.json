@@ -3,7 +3,7 @@
 	"package": "com.finkkk.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+      "SanityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

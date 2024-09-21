@@ -2,6 +2,7 @@ package com.finkkk;
 
 import com.finkkk.item.ModItemGroup;
 import com.finkkk.item.ModItems;
+import com.finkkk.sanity.SanityManager;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;

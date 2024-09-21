@@ -1,4 +1,5 @@
 {
   "item.sanity-mod.sanity_indicator":"san值指示器",
-  "itemGroup.sanity_group": "san值类"
+  "itemGroup.sanity_group": "san值类",
+  "item.sanity-mod.sanity_potion": "san值回复药水"
 }

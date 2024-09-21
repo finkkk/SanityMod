@@ -14,6 +14,7 @@ import net.minecraft.util.Identifier;
 public class ModItems {
 
     public static final Item sanity_indicator = regitsterItems("sanity_indicator",new Item(new FabricItemSettings()));
+    public static final Item sanity_potion = regitsterItems("sanity_potion",new Item(new FabricItemSettings().food(ModFoodComponents.sanity_potion)));
 
     private static void addItemsToGroup(FabricItemGroupEntries groupEntries) {
         groupEntries.add(sanity_indicator);
@@ -25,6 +26,5 @@ public class ModItems {
 
     public static void regitsterModItems(){
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addItemsToGroup);
-
     }
 }

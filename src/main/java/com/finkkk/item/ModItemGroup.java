@@ -15,6 +15,7 @@ public class ModItemGroup {
             FabricItemGroup.builder().displayName(Text.translatable("itemGroup.sanity_group"))
                     .icon(() -> new ItemStack(ModItems.sanity_indicator)).entries((displayContext, entries) -> {
                         entries.add(ModItems.sanity_indicator);
+                        entries.add(ModItems.sanity_potion);
                     }).build());
     public static void registerItemGroup() {
 

@@ -5,7 +5,7 @@
 	"mixins": [
 		"SanityMixin",
 		"TitleScreenMixin",
-		"PlayerEntityMixin"
+		"LivingEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

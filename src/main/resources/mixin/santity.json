@@ -3,9 +3,7 @@
   "package": "com.finkkk.sanity.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "SanityMixin",
-    "TitleScreenMixin",
-    "PlayerEntityMixin"
+    "SanityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

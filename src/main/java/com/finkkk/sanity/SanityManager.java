@@ -16,33 +16,11 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class SanityManager implements ModInitializer {
-
-
     // 定义一个唯一的 Identifier 用于标识 SAN 值的同步数据包
     private static final Identifier SANITY_SYNC_PACKET_ID = new Identifier("sanity", "sync_sanity");
 
-
-
-    // 存储每个玩家上一次被攻击的时间，用于冷却机制
-    private long lastAttackTime = 0;
-
-    // 设置 SAN 值的最大值和最小值
-    private static final int MAX_SANITY = 45;
-    private static final int MIN_SANITY = -45;
-    private static final String SANITY_TAG = "SanityValue";  // NBT 数据中的键名
-
     @Override
     public void onInitialize() {
-        // 注册复活事件监听
-        ServerPlayerEvents.AFTER_RESPAWN.register((oldPlayer, newPlayer, alive) -> {
-            if (newPlayer instanceof SanityAccess sanityPlayer) { // 使用接口来访问 SAN 方法
-                sanityPlayer.resetSanity();
-                syncSanityToClient(newPlayer);  // 同步 SAN 值到客户端
-                // 发送消息到玩家的聊天框
-                newPlayer.sendMessage(Text.of("SAN 值被重置了,现在的san值是"+sanityPlayer.getSanity()), false);
-            }
-        });
-
         // 注册客户端的 Packet 接收器，用于接收服务端同步过来的 SAN 值
         ClientPlayNetworking.registerGlobalReceiver(SANITY_SYNC_PACKET_ID, (client, handler, buf, responseSender) -> {
             int receivedSanity = buf.readInt();  // 读取 SAN 值

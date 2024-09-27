@@ -18,7 +18,6 @@ public class ModItemGroup {
                         entries.add(ModItems.sanity_potion);
                     }).build());
     public static void registerItemGroup() {
-
     }
 
 }

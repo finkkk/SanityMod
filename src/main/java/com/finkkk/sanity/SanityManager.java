@@ -21,18 +21,26 @@ public class SanityManager implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        // 注册客户端的 Packet 接收器，用于接收服务端同步过来的 SAN 值
         ClientPlayNetworking.registerGlobalReceiver(SANITY_SYNC_PACKET_ID, (client, handler, buf, responseSender) -> {
             int receivedSanity = buf.readInt();  // 读取 SAN 值
             client.execute(() -> {
-                if (client.player instanceof SanityAccess sanityPlayer) {
+                if (client.player != null && client.player instanceof SanityAccess sanityPlayer) {
                     sanityPlayer.setSanity(receivedSanity);  // 设置客户端的 SAN 值
                 }
             });
         });
+
+        ServerPlayerEvents.AFTER_RESPAWN.register((oldPlayer, newPlayer, alive) -> {
+            if (newPlayer instanceof SanityAccess sanityPlayer) {
+                syncSanityToClient(newPlayer);
+                sanityPlayer.resetSanity();
+            }
+        });
+
         // 注册 HUD 渲染回调
         HudRenderCallback.EVENT.register(this::onRenderHUD);
     }
+
 
     // 服务端同步 SAN 值到客户端
     private void syncSanityToClient(PlayerEntity player) {
@@ -48,8 +56,9 @@ public class SanityManager implements ModInitializer {
         MinecraftClient client = MinecraftClient.getInstance();
         if (client.player instanceof SanityAccess sanityPlayer) { // 使用接口
             int sanityValue = sanityPlayer.getSanity();
-            int x = 10; // X 轴位置
-            int y = 10; // Y 轴位置
+            int x = (int) (client.getWindow().getScaledWidth() * 0.1);  // 距离左边5%
+            int y = (int) (client.getWindow().getScaledHeight() * 0.1);  // 距离上边5%
+
             drawContext.drawText(client.textRenderer, Text.of("SAN值: " + sanityValue), x, y, 0xFFFFFF, false);
         }
     }

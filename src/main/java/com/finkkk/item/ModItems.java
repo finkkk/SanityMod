@@ -23,7 +23,6 @@ public class ModItems {
     private static Item regitsterItems(String name,Item item){
         return Registry.register(Registries.ITEM,new Identifier(SanityMod.MOD_ID,name),item);
     }
-
     public static void regitsterModItems(){
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addItemsToGroup);
     }

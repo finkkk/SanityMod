@@ -26,8 +26,6 @@ public class SanityMod implements ModInitializer {
 		// Proceed with mild caution.
 		ModItems.regitsterModItems();
 		ModItemGroup.registerItemGroup();
-		// 初始化 SAN 管理器
-		new SanityManager().onInitialize();
 
 		LOGGER.info("Hello Fabric world!");
 	}

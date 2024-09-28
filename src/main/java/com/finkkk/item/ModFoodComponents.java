@@ -6,6 +6,9 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 
 public class ModFoodComponents {
-    public static final FoodComponent sanity_potion = new FoodComponent.Builder().hunger(3).saturationModifier(0F)
+    public static final FoodComponent SANITY_POTION = new FoodComponent.Builder()
+            .hunger(0)
+            .saturationModifier(0F)
+            .alwaysEdible()  // 允许玩家总是可以食用
             .build();
 }

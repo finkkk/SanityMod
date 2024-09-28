@@ -3,8 +3,11 @@ package com.finkkk;
 import com.finkkk.item.ModItemGroup;
 import com.finkkk.item.ModItems;
 import com.finkkk.status.SanityManager;
+import com.finkkk.status.StatAccessor;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.minecraft.server.network.ServerPlayerEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

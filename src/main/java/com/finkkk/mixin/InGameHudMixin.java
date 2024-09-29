@@ -57,14 +57,14 @@ public abstract class InGameHudMixin{
             // 渲染 Sanity 值
             context.drawText(client.textRenderer, sanityText, 10, 10, color, false);
 
-            // 设置背景图的绘制位置
+            /*// 设置背景图的绘制位置
             int xPos = 10;  // 背景图的X坐标
             int yPos = 10;  // 背景图的Y坐标
-            int bgWidth = 100;  // 背景图的宽度
-            int bgHeight = 50;  // 背景图的高度
+            int bgWidth = 0;  // 背 景图的宽度
+            int bgHeight = 0;  // 背景图的高度
             // 渲染背景图
             client.getTextureManager().bindTexture(SANITY_BACKGROUND);  // 绑定背景图
-            context.drawTexture(SANITY_BACKGROUND, xPos, yPos, 0, 0, bgWidth, bgHeight, bgWidth, bgHeight);  // 绘制背景图
+            context.drawTexture(SANITY_BACKGROUND, xPos, yPos, 0, 0, bgWidth, bgHeight, bgWidth, bgHeight);  // 绘制背景图*/
 
             // 初始化默认的 Buff 提示文本
             String buffText = "";

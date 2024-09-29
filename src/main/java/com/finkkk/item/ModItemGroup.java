@@ -13,8 +13,7 @@ public class ModItemGroup {
     public static final ItemGroup SANITY_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(SanityMod.MOD_ID,"sanity_group"),
             FabricItemGroup.builder().displayName(Text.translatable("itemGroup.sanity_group"))
-                    .icon(() -> new ItemStack(ModItems.sanity_indicator)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.sanity_indicator);
+                    .icon(() -> new ItemStack(ModItems.sanity_potion)).entries((displayContext, entries) -> {
                         entries.add(ModItems.sanity_potion);
                     }).build());
     public static void registerItemGroup() {

@@ -114,7 +114,6 @@ public abstract class PlayerEntityMixin extends LivingEntity implements StatAcce
         // 如果San值为-45，翻倍伤害
         if (sanity == -45) {
             amount *= 2.0F;
-            player.sendMessage(Text.of("伤害已翻倍"));
         }
         // 继续执行原始damage方法，传入修改后的amount
         if (!this.isDead() && amount > 0.0F) {

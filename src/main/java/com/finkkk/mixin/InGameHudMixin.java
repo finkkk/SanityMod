@@ -50,36 +50,24 @@ public abstract class InGameHudMixin{
             // 只有在 Sanity 值发生变化时更新 HUD
             cachedSanity = sanityManager.getSanity();  // 更新缓存的 Sanity 值
             cachedSanDifference = sanityManager.getSanDifference();  // 更新缓存的差值
-            // 设置显示的文本
-            String sanityText = "San值: " + cachedSanity+"/45";
-            // 设置文本颜色，白色
-            int color = 0xFFFFFF;
-            // 渲染 Sanity 值
-            context.drawText(client.textRenderer, sanityText, 10, 10, color, false);
-
             // 设置背景图的绘制位置
-            int xPos = 10;  // 背景图的X坐标
-            int yPos = 10;  // 背景图的Y坐标
-            int bgWidth = 100;  // 背景图的宽度
+            int xPos = 18;  // 背景图的X坐标
+            int yPos = 0;  // 背景图的Y坐标
+            int bgWidth = 90;  // 背景图的宽度
             int bgHeight = 50;  // 背景图的高度
+
             // 渲染背景图
             client.getTextureManager().bindTexture(SANITY_BACKGROUND);  // 绑定背景图
             context.drawTexture(SANITY_BACKGROUND, xPos, yPos, 0, 0, bgWidth, bgHeight, bgWidth, bgHeight);  // 绘制背景图
 
-            // 初始化默认的 Buff 提示文本
-            String buffText = "";
-            // 检查 San 值并显示对应的 Buff 信息
-            if (cachedSanity == -45) {
-                buffText = "Buff: 受到的伤害翻倍!";
-            } else if (cachedSanity < 0) {
-                buffText = "Buff: 攻击力减半!";
-            } else if (cachedSanity == 45) {
-                buffText = "Buff: 攻击力增加50%!";
-            }
-            // 如果有 Buff 提示，则显示在 San 值的下方
-            if (!buffText.isEmpty()) {
-                context.drawText(client.textRenderer, buffText, 10, 25, color, false);  // 渲染 buff 提示文本
-            }
+            // 设置显示的文本
+            String sanityText = "理智值 " + cachedSanity + "/45";
+            int textXPos = xPos + 10;  // 文本的X坐标，稍微偏移到背景图内部
+            int textYPos = yPos + 21;  // 文本的Y坐标，居中显示
+            int color = 0xFFFFFF;  // 白色文字颜色
+
+            // 渲染 Sanity 值，确保它显示在背景图上层
+            context.drawText(client.textRenderer, sanityText, textXPos, textYPos, color, false);
         }
     }
 }
